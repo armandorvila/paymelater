@@ -1,0 +1,14 @@
+{
+  "generator-jhipster": {
+    "baseName": "payme-later",
+    "packageName": "com.armandorv.paymelater",
+    "packageFolder": "com/armandorv/paymelater",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "hazelcast",
+    "websocket": "no",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "useCompass": false,
+    "javaVersion": "8"
+  }
+}

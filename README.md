@@ -1,4 +1,2 @@
-paymelater
-==========
-
-Paymelater.com web application.
+README for payme-later
+==========================

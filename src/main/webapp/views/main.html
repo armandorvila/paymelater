@@ -1,0 +1,31 @@
+<div data-ng-cloak>
+	
+	<header class="row subhead  jumbotron widget-head">
+		<h1 data-translate="main.title">Welcome to Paymelater.com!</h1>
+		<p data-translate="main.subtitle">This is your
+			homepage</p>
+	</header>
+	
+	<div class="row">
+
+		<div class="col-md-8">
+			<div data-ng-switch="authenticated">
+				<div class="alert alert-success" data-ng-switch-when="true"
+					data-translate="main.logged.message"
+					translate-values="{username: '{{account.login}}'}">You are
+					logged in as user "Admin".</div>
+
+				<div class="alert alert-warning" data-ng-switch-when="false"
+					data-translate="main.logged.authenticated">
+					If you want to <a href="#/login">authenticate</a>, you can try the
+					default login="admin" and password="admin".
+				</div>
+			</div>
+
+			<p data-translate="main.question"></p>
+
+
+			<p></p>
+		</div>
+	</div>
+</div>
