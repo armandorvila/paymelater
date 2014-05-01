@@ -22,7 +22,7 @@
 				<!-- Spring profile to use -->
 				<spring.profiles.active>dev</spring.profiles.active>
 				<!-- log configuration -->
-				<logback.loglevel>DEBUG</logback.loglevel>
+				<logback.loglevel>INFO</logback.loglevel>
 			</properties>
 		</profile>
 		<profile>
@@ -472,7 +472,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<baseDir>http://localhost:9876</baseDir>
+					<baseDir>src/test/javascript/spec/</baseDir>
 					<outputDir>${project.build.directory}/saga-coverage</outputDir>
 					<noInstrumentPatterns>
 						<pattern>.src/test/javascript/spec/.*</pattern>
@@ -497,7 +497,7 @@
 				<artifactId>coveralls-maven-plugin</artifactId>
 				<version>2.2.0</version>
 				<configuration>
-					<repoToken>yourcoverallsprojectrepositorytoken</repoToken>
+					<repoToken>R1TGl2x40mJXwDqiIE4wCH6yTCl9jsQma</repoToken>
 				</configuration>
 			</plugin>
 
