@@ -1,2 +1,2 @@
-target/paymelater-0.1-SNAPSHOT.war.original
-target/paymelater-0.1-SNAPSHOT
+target/*
+!target/paymelater-0.1-SNAPSHOT.war
