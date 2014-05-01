@@ -70,7 +70,7 @@
 							</filesets>
 						</configuration>
 					</plugin>
-<!-- 					<plugin>
+ 					<plugin>
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
@@ -78,7 +78,7 @@
 								<argument>--spring.profiles.active=prod</argument>
 							</arguments>
 						</configuration>
-					</plugin> -->
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
@@ -535,7 +535,7 @@
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>${sonar-maven-plugin.version}</version>
 			</plugin>
-			<!-- <plugin>
+			 <plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
@@ -544,7 +544,7 @@
 					</arguments>
 				</configuration>
 			</plugin>
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 
