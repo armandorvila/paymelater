@@ -1,2 +1,4 @@
 /spring_loaded
 /taget/paymelater-0.1-SNAPSHOT.war.original
+**/selenium-*
+**/jetty-*
