@@ -1,2 +1,2 @@
-README for payme-later
+README for paymelater
 ==========================
