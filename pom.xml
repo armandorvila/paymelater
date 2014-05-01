@@ -36,7 +36,7 @@
 			</properties>
 			<build>
 				<plugins>
-					<plugin>
+<!-- 					<plugin>
 						<groupId>com.github.trecloux</groupId>
 						<artifactId>yeoman-maven-plugin</artifactId>
 						<version>0.2</version>
@@ -52,7 +52,7 @@
 								</goals>
 							</execution>
 						</executions>
-					</plugin>
+					</plugin> -->
 					<plugin>
 						<artifactId>maven-clean-plugin</artifactId>
 						<version>2.5</version>
@@ -70,7 +70,7 @@
 							</filesets>
 						</configuration>
 					</plugin>
-					<plugin>
+<!-- 					<plugin>
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
@@ -78,7 +78,7 @@
 								<argument>--spring.profiles.active=prod</argument>
 							</arguments>
 						</configuration>
-					</plugin>
+					</plugin> -->
 				</plugins>
 			</build>
 		</profile>
@@ -374,10 +374,10 @@
 		</dependency>
 
 		<!-- Database dependencies -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -414,11 +414,11 @@
 			<version>${liquibase-slf4j.version}</version>
 		</dependency>
 
-		<dependency>
+<!-- 		<dependency>
 			<artifactId>springloaded</artifactId>
 			<groupId>org.springframework</groupId>
 			<version>1.2.0.RELEASE</version>
-		</dependency>
+		</dependency> -->
 
 	</dependencies>
 	<build>
@@ -432,7 +432,7 @@
 			</resource>
 		</resources>
 		<plugins>
-			<plugin>
+<!-- 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-enforcer-plugin</artifactId>
 				<version>${maven-enforcer-plugin.version}</version>
@@ -458,7 +458,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 
 			<plugin>
 				<groupId>com.github.timurstrekalov</groupId>
