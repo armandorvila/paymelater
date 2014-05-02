@@ -367,11 +367,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency> -->
-<!-- 		<dependency>
+		<dependency>
 			<groupId>com.mangofactory</groupId>
 			<artifactId>swagger-springmvc</artifactId>
 			<version>0.8.2</version>
-		</dependency> -->
+		</dependency>
 
 		<!-- Database dependencies -->
 <!-- 		<dependency>
