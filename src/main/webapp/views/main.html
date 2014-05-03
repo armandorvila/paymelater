@@ -1,30 +1,59 @@
 <div data-ng-cloak>
-	
-	<header class="row subhead  jumbotron widget-head">
-		<h1 data-translate="main.title">Paymelater.com</h1>
-		<p data-translate="main.subtitle">Welcome to Paymelater.com!</p>
-	</header>
-	
-	<div class="row">
+
+	<div class="row col-md-offset-1">
 
 		<div class="col-md-8">
-			<div data-ng-switch="authenticated">
-				<div class="alert alert-success" data-ng-switch-when="true"
-					data-translate="main.logged.message"
-					translate-values="{username: '{{account.login}}'}">You are
-					logged in as user "Admin".</div>
 
-				<div class="alert alert-warning" data-ng-switch-when="false"
-					data-translate="main.logged.authenticated">
-					If you want to <a href="#/login">authenticate</a>, you can try the
-					default login="admin" and password="admin".
+			<article>
+				<header class="modal-header">
+					<h1>About Paymelater</h1>
+				</header>
+				<div class="modal-body">
+					<ul>
+						<li>
+							<p class="info">Paymelater.com allow you manage your debts
+								and charges in a rally easy way.</p>
+						<li>
+							<p>You can use Pay Pal or Whatever Virtual Terminal what you
+								want.</p>
+						</li>
+					</ul>
 				</div>
-			</div>
+			</article>
+			<article>
+				<header class="modal-header">
+					<h1>Features</h1>
+				</header>
+				<div class="modal-body">
+					<ul>
+						<li>
+							<p class="info">Paymelater.com allow you manage your debts
+								and charges in a rally easy way.</p>
+						<li>
+							<p>You can use Pay Pal or Whatever Virtual Terminal what you
+								want.</p>
+						</li>
+					</ul>
+				</div>
+			</article>
+			
+			<article>
+				<header class="modal-header">
+					<h1>Pricing</h1>
+				</header>
+				<div class="modal-body">
+					<ul>
+						<li>
+							<p class="info">Paymelater.com allow you manage your debts
+								and charges in a rally easy way.</p>
+						<li>
+							<p>You can use Pay Pal or Whatever Virtual Terminal what you
+								want.</p>
+						</li>
+					</ul>
+				</div>
+			</article>
 
-			<p data-translate="main.question"></p>
-
-
-			<p></p>
 		</div>
 	</div>
 </div>

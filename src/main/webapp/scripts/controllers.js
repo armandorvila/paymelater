@@ -36,6 +36,26 @@ paymeLaterApp.controller('LoginController', ['$scope', '$location', 'Authenticat
         }
     }]);
 
+paymeLaterApp.controller('SignupController', 
+		['$scope', '$location', 'User',
+        function ($scope, $location, User) {
+        $scope.user = {};
+        $scope.error = undefined;
+          
+        $scope.signup = function(){
+        	User.save($scope.user, 
+                    function (value, responseHeaders) {
+                $scope.error = null;
+                $scope.success = 'OK';
+                $location.path('/signin');
+            },
+            function (httpResponse) {
+                $scope.success = null;
+                $scope.error = "ERROR";
+            });
+        };
+}]);
+
 paymeLaterApp.controller('LogoutController', ['$location', 'AuthenticationSharedService',
     function ($location, AuthenticationSharedService) {
         AuthenticationSharedService.logout({
@@ -207,7 +227,10 @@ paymeLaterApp.controller('AuditsController', ['$scope', '$translate', '$filter',
         $scope.today = function() {
             // Today + 1 day - needed if the current day must be included
             var today = new Date();
-            var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate()+1); // create new increased date
+            var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate()+1); // create
+																								// new
+																								// increased
+																								// date
 
             $scope.toDate = $filter('date')(tomorrow, "yyyy-MM-dd");
         };

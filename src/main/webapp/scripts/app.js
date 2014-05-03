@@ -3,15 +3,22 @@
 /* App Module */
 
 var paymeLaterApp = angular.module('paymeLaterApp', ['http-auth-interceptor', 'tmh.dynamicLocale',
-    'ngResource', 'ngRoute', 'ngCookies', 'pascalprecht.translate']);
+    'ngResource', 'ngRoute', 'ngCookies', 'pascalprecht.translate','ui.bootstrap']);
 
 paymeLaterApp
     .config(['$routeProvider', '$httpProvider', '$translateProvider',  'tmhDynamicLocaleProvider', 'USER_ROLES',
         function ($routeProvider, $httpProvider, $translateProvider, tmhDynamicLocaleProvider, USER_ROLES) {
             $routeProvider
-                .when('/login', {
-                    templateUrl: 'views/login.html',
+                .when('/signin', {
+                    templateUrl: 'views/signin.html',
                     controller: 'LoginController',
+                    access: {
+                        authorizedRoles: [USER_ROLES.all]
+                    }
+                })
+                .when('/signup', {
+                    templateUrl: 'views/signup.html',
+                    controller: 'SignupController',
                     access: {
                         authorizedRoles: [USER_ROLES.all]
                     }
@@ -110,7 +117,8 @@ paymeLaterApp
         }])
         .run(['$rootScope', '$location', '$http', 'AuthenticationSharedService', 'Session', 'USER_ROLES',
             function($rootScope, $location, $http, AuthenticationSharedService, Session, USER_ROLES) {
-                $rootScope.$on('$routeChangeStart', function (event, next) {
+                
+        	$rootScope.$on('$routeChangeStart', function (event, next) {
                     $rootScope.authenticated = AuthenticationSharedService.isAuthenticated();
                     $rootScope.isAuthorized = AuthenticationSharedService.isAuthorized;
                     $rootScope.userRoles = USER_ROLES;
@@ -135,7 +143,7 @@ paymeLaterApp
 
                 // Call when the the client is confirmed
                 $rootScope.$on('event:auth-loginConfirmed', function(data) {
-                    if ($location.path() === "/login") {
+                    if ($location.path() === "/signin") {
                         $location.path('/').replace();
                     }
                 });
@@ -144,8 +152,8 @@ paymeLaterApp
                 $rootScope.$on('event:auth-loginRequired', function(rejection) {
                     Session.destroy();
                     $rootScope.authenticated = false;
-                    if ($location.path() !== "/" && $location.path() !== "") {
-                        $location.path('/login').replace();
+                    if ($location.path() !== "/" && $location.path() !== "/signup" && $location.path() !== "") {
+                        $location.path('/signin').replace();
                     }
                 });
 

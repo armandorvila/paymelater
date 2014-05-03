@@ -1,5 +1,5 @@
 body {
-    background: #fff;
+    background: #ccc;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
@@ -90,9 +90,18 @@ ul#strength {
 
 
 .subhead {
-	margin-top:-0.8%;
+ margin-top:-0.8%;
 	margin-left:-0.8%;
-	margin-right:-0.8%;
-	padding:2.2%;
+	margin-right:-0.9%;
+	padding:3.2%; 
 	background: linear-gradient(-15deg, #428bca -30%, #C8F7EC 100%);
+}
+
+.content {
+	margin-top:-5%;
+	background: #fff;
+}
+
+.footer {
+
 }

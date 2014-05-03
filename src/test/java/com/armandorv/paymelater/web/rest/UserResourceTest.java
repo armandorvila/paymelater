@@ -1,7 +1,12 @@
 package com.armandorv.paymelater.web.rest;
 
+import java.io.IOException;
+
 import com.armandorv.paymelater.Application;
 import com.armandorv.paymelater.repository.UserRepository;
+import com.armandorv.paymelater.service.UserService;
+import com.armandorv.paymelater.web.rest.dto.UserDTO;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +23,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import javax.inject.Inject;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
@@ -34,6 +40,9 @@ public class UserResourceTest {
 
     @Inject
     private UserRepository userRepository;
+    
+    @Inject
+    private UserService userService;
 
     private MockMvc restUserMockMvc;
 
@@ -41,9 +50,27 @@ public class UserResourceTest {
     public void setup() {
         UserResource userResource = new UserResource();
         ReflectionTestUtils.setField(userResource, "userRepository", userRepository);
+        ReflectionTestUtils.setField(userResource, "userService", userService);
         this.restUserMockMvc = MockMvcBuilders.standaloneSetup(userResource).build();
     }
 
+    @Test
+    public void testCreateUser() throws IOException, Exception{
+    	
+    	UserDTO user = new UserDTO();
+    	user.setEmail("armando@gmail.com");
+    	user.setFirstName("Armando");
+    	user.setLastName("Ramírez");
+    	user.setPassword("secret");
+    	user.setLogin("armandorv");
+    	
+    	restUserMockMvc.perform(
+    					post("/app/rest/public/users").contentType(
+    							TestUtil.APPLICATION_JSON_UTF8).content(
+    							TestUtil.convertObjectToJsonBytes(user))).andExpect(
+    					status().isOk());
+    }
+    
     @Test
     public void testGetExistingUser() throws Exception {
         restUserMockMvc.perform(get("/app/rest/users/admin")

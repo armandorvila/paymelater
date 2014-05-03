@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>payme-later</title>
+<title>Paymelater.com</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -25,134 +25,20 @@
 	<div class="banner"></div>
 	<div class="container">
 
-		<!-- ********************* Nav bar for all views ************************ -->
+		<div data-ng-include="'views/navbar.html'"></div>
 
-		<nav class="navbar navbar-inverse" role="navigation">
+		<div class="well well-sm content">
+			<header class="modal-header subhead  jumbotron widget-head">
+				<h1 data-translate="main.title">Paymelater.com</h1>
+				<p data-translate="main.subtitle">Welcome to Paymelater.com!</p>
+			</header>
 
-			<div class="navbar-header ">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
+			<div data-ng-view=""></div>
 
-				<a class="navbar-brand" href="/#/home"> Paymelater.com</a>
-			</div>
-
-			<div class="collapse navbar-collapse offset1"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class=""><a href="#"> <span
-							class="glyphicon glyphicon-home"></span> <span
-							data-translate="global.menu.home">Home</span>
-					</a></li>
-
-					<li class="dropdown"><a class="dropdown-toggle btn-link"
-						data-toggle="dropdown"> <span> <span
-								class="glyphicon glyphicon-usd"></span> <span
-								class="hidden-tablet"> Payments </span>
-								<b class="caret"></b>
-						</span>
-					</a>
-						<ul class="dropdown-menu">
-							<li><a href="#/settings"><span
-									class="glyphicon glyphicon-wrench"></span> &nbsp;<span>My
-										payments</span></a></li>
-							<li><a href="#/password"><span
-									class="glyphicon glyphicon-lock"></span> &nbsp;<span>New
-										payment</span></a></li>
-						</ul></li>
-
-					<li class="dropdown"><a class="dropdown-toggle btn-link"
-						data-toggle="dropdown"> <span> <span
-								class="glyphicon glyphicon-user"></span> <span
-								class="hidden-tablet" data-translate="global.menu.account.main">
-									Account </span>
-									<b class="caret"></b>
-						</span>
-					</a>
-						<ul class="dropdown-menu" data-ng-controller="MenuController">
-							<li><a href="#/settings"><span
-									class="glyphicon glyphicon-wrench"></span> &nbsp;<span
-									data-translate="global.menu.account.settings">Settings</span></a></li>
-							<li><a href="#/password"><span
-									class="glyphicon glyphicon-lock"></span> &nbsp;<span
-									data-translate="global.menu.account.password">Password</span></a></li>
-							<li><a href="#/sessions"><span
-									class="glyphicon glyphicon-cloud"></span> &nbsp;<span
-									data-translate="global.menu.account.sessions">Sessions</span></a></li>
-							<li><a href="#/logout"><span
-									class="glyphicon glyphicon-log-out"></span> &nbsp;<span
-									data-translate="global.menu.account.logout">Log out</span></a></li>
-							<li><a href="#/login"><span
-									class="glyphicon glyphicon-log-in"></span> &nbsp;<span
-									data-translate="global.menu.account.login">Authenticate</span></a></li>
-						</ul></li>
-
-					<li data-ng-show="isAuthorized(userRoles.admin)" class="dropdown"
-						data-ng-controller="AdminController"><a
-						class="dropdown-toggle btn-link" data-toggle="dropdown"> <span>
-								<span class="glyphicon glyphicon-tower"></span> <span
-								class="hidden-tablet" data-translate="global.menu.admin">Admin</span>
-								<b class="caret"></b>
-						</span>
-					</a>
-						<ul class="dropdown-menu">
-							<li><a href="#/metrics"><span
-									class="glyphicon glyphicon-dashboard"></span> &nbsp;<span
-									translate="global.menu.account.metrics">Metrics</span></a></li>
-							<li><a href="#/audits"><span
-									class="glyphicon glyphicon-bell"></span> &nbsp;<span
-									translate="global.menu.account.audits">Audits</span></a></li>
-							<li><a href="#/logs"><span
-									class="glyphicon glyphicon-tasks"></span> &nbsp;<span
-									translate="global.menu.account.logs">Logs</span></a></li>
-							<li><a href="#/docs"><span
-									class="glyphicon glyphicon-book"></span> &nbsp;<span
-									translate="global.menu.account.apidocs">API Docs</span></a></li>
-						</ul></li>
-				</ul>
-
-				<ul class="nav navbar-nav pull-right">
-					<li class="dropdown" data-ng-controller="LanguageController"><a
-						class="dropdown-toggle btn-link" data-toggle="dropdown"> <span>
-								<span class="glyphicon glyphicon-flag"></span> <span
-								class="hidden-tablet" data-translate="global.menu.language">Language</span>
-								<b class="caret"></b>
-						</span>
-					</a>
-						<ul class="dropdown-menu">
-							<li data-active-menu="da"><a href="#"
-								data-ng-click="changeLanguage(&apos;da&apos;)"><span
-									class="famfamfam-flag-dk"></span> &nbsp;<span
-									data-translate="global.language.da">Danish</span></a></li>
-							<li data-active-menu="en"><a href="#"
-								data-ng-click="changeLanguage(&apos;en&apos;)"><span
-									class="famfamfam-flag-gb"></span> &nbsp;<span
-									data-translate="global.language.en">English</span></a></li>
-							<li data-active-menu="fr"><a href="#"
-								data-ng-click="changeLanguage(&apos;fr&apos;)"><span
-									class="famfamfam-flag-fr"></span> &nbsp;<span
-									data-translate="global.language.fr">French</span></a></li>
-							<li data-active-menu="de"><a href="#"
-								data-ng-click="changeLanguage(&apos;de&apos;)"><span
-									class="famfamfam-flag-de"></span> &nbsp;<span
-									data-translate="global.language.de">German</span></a></li>
-							<li data-active-menu="pl"><a href="#"
-								data-ng-click="changeLanguage(&apos;pl&apos;)"><span
-									class="famfamfam-flag-pl"></span> &nbsp;<span
-									data-translate="global.language.pl">Polish</span></a></li>
-						</ul></li>
-				</ul>
-
-			</div>
-			<!-- /.navbar-collapse -->
-		</nav>
-
-
-
-		<div class="well well-sm" data-ng-view=""></div>
+			<footer class="modal-footer footer">
+				<a href="https://twitter.com/armandorvila" class="btn-link">Twitter</a> | <a href="https://www.linkedin.com/in/armandorv" class="btn-link">Linkedin</a>
+			</footer>
+		</div>
 	</div>
 
 	<!-- build:js scripts/scripts.js -->
@@ -199,6 +85,13 @@
 		src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js"></script>
 	<script
 		src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+	<!-- New entities -->
+	<script src="scripts/charges/router.js"></script>
+	<script src="scripts/charges/controller.js"></script>
+	<script src="scripts/charges/service.js"></script>
 	<!-- endbuild -->
 </body>
 </html>

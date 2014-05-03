@@ -8,6 +8,12 @@ paymeLaterApp.factory('Account', ['$resource',
         });
     }]);
 
+paymeLaterApp.factory('User', ['$resource',
+                                  function ($resource) {
+                                      return $resource('app/rest/public/users', {}, {
+ });
+}]);
+
 paymeLaterApp.factory('Password', ['$resource',
     function ($resource) {
         return $resource('app/rest/account/change_password', {}, {

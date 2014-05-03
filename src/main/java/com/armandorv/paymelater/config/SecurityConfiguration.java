@@ -97,6 +97,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .frameOptions().disable()
             .authorizeRequests()
                 .antMatchers("/app/rest/authenticate").permitAll()
+                .antMatchers("/app/rest/public/**").permitAll()
+                 .antMatchers("/app/rest/public/users").permitAll()
                 .antMatchers("/app/rest/logs/**").hasAuthority(AuthoritiesConstants.ADMIN)
                 .antMatchers("/app/**").authenticated()
                 .antMatchers("/websocket/tracker").hasAuthority(AuthoritiesConstants.ADMIN)

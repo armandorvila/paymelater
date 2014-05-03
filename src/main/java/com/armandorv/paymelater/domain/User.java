@@ -48,7 +48,7 @@ public class User implements Serializable {
     private Set<Authority> authorities;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade=CascadeType.REMOVE)
     private Set<PersistentToken> persistentTokens;
 
     public String getLogin() {

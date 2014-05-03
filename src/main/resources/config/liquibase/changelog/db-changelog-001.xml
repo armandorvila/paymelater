@@ -130,4 +130,58 @@
                                  referencedColumnNames="event_id"
                                  referencedTableName="T_PERSISTENT_AUDIT_EVENT"/>
     </changeSet>
+    
+    
+     <!-- Payment entity table-->
+    <changeSet id="3" author="armandorv">
+        <createTable tableName="T_PAYMENT">
+            <column name="id" type="bigint" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="subject" type="varchar(50)"/>
+            <column name="description" type="varchar(50)"/>
+            <column name="amount" type="numeric"/>
+            
+            <column name="lender" type="varchar(50)" >
+                <constraints primaryKey="false" nullable="false"/>
+            </column>
+            
+            <column name="borrower" type="varchar(50)" >
+                <constraints primaryKey="false" nullable="false"/>
+            </column>
+            
+             <column name="beginning" type="date"/>
+            <column name="dead_line" type="date"/>
+            
+        </createTable>
+
+        <createIndex indexName="idx_payment_lender"
+                     tableName="T_PAYMENT"
+                     unique="false">
+            <column name="lender" type="varchar(50)"/>
+        </createIndex>
+        
+        <createIndex indexName="idx_payment_borrower"
+                     tableName="T_PAYMENT"
+                     unique="false">
+            <column name="borrower" type="varchar(50)"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="lender"
+                                 baseTableName="T_PAYMENT"
+                                 constraintName="fk_lender"
+                                 referencedColumnNames="login"
+                                 referencedTableName="T_USER"/>
+
+		<addForeignKeyConstraint baseColumnNames="borrower"
+                                 baseTableName="T_PAYMENT"
+                                 constraintName="fk_borrower"
+                                 referencedColumnNames="login"
+                                 referencedTableName="T_USER"/>
+                                 
+       <loadData encoding="UTF-8"
+                  file="config/liquibase/payments.csv"
+                  separator=";"
+                  tableName="T_PAYMENT"/>
+    </changeSet>
 </databaseChangeLog>
