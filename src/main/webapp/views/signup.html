@@ -1,0 +1,60 @@
+<div>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+
+			<h1>Sign up</h1>
+
+			 <div class="alert alert-danger" data-ng-show="error">
+                <strong>An error has occured!</strong>
+            </div>
+			
+			<form class="form" role="form">
+				<label class="sr-only" for="firstname" >First</label>
+				<div class="form-group">
+					<input type="text" class="form-control" id="firstname"
+						placeholder="First Name"
+						data-ng-model="user.firstName">
+				</div>
+				
+				<div class="form-group">
+					<label class="sr-only" for="lastname" >Last Name</label>
+					<input type="text" class="form-control" id="lastname" placeholder="Last Name"
+						data-ng-model="user.lastName">
+				</div>
+				
+				<div class="form-group">
+					<label class="sr-only" for="email" data-translate="login.form.email">E-mail</label>
+					<input type="email" class="form-control" id="email"
+						placeholder="E-mail"
+						data-ng-model="user.email">
+				</div>
+				
+				<div class="form-group">
+					<label class="sr-only" for="username" data-translate="login.form.username">Username</label>
+					<input type="text" class="form-control" id="username"
+						placeholder="{{'login.form.username.placeholder' | translate}}"
+						data-ng-model="user.login">
+				</div>
+				
+				<div class="form-group">
+					<label class="sr-only" for="password" data-translate="login.form.password">Password</label>
+					<input type="password" class="form-control" id="password"
+						placeholder="{{'login.form.password.placeholder' | translate}}"
+						data-ng-model="user.password">
+				</div>
+				
+				<div class="form-group">
+					<label class="sr-only" for="passwordConfirmation">Confirm Password</label>
+					<input type="password" class="form-control" id="passwordConfirmation"
+						placeholder="Confirm Password"
+						data-ng-model="passwordConfirmation">
+				</div>
+
+				<button type="submit" class="btn btn-primary" data-ng-click="signup()"
+					>Sign up</button>
+			</form>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+</div>
