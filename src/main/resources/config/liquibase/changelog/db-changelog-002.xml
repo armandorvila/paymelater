@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet author="jhipster" id="1400148147228-3">
+        <dropNotNullConstraint catalogName="" columnDataType="varchar(255)" columnName="borrower" schemaName="public" tableName="T_PAYMENT"/>
+    </changeSet>
+    <changeSet author="jhipster" id="1400148147228-4">
+        <dropNotNullConstraint catalogName="" columnDataType="varchar(255)" columnName="lender" schemaName="public" tableName="T_PAYMENT"/>
+    </changeSet>
+</databaseChangeLog>

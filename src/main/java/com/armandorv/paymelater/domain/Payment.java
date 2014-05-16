@@ -15,6 +15,11 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 import org.joda.time.LocalDate;
 
+import com.armandorv.paymelater.domain.util.CustomLocalDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.joda.deser.LocalDateDeserializer;
+
 /**
  * A Payment.
  */
@@ -39,27 +44,37 @@ public class Payment implements Serializable {
 	@Column(name = "amount")
 	private Double amount;
 
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@JsonSerialize(using = CustomLocalDateSerializer.class)
 	@Column(name = "beginning")
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
-	private LocalDate beginning;
+	private LocalDate beginning = new LocalDate();
 
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@JsonSerialize(using = CustomLocalDateSerializer.class)
 	@Column(name = "dead_line")
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
 	private LocalDate deadLine;
 
 	@ManyToOne
-	@JoinColumn(name="borrower")
+	@JoinColumn(name = "borrower")
 	private User borrower;
 
 	@ManyToOne
-	@JoinColumn(name="lender")
+	@JoinColumn(name = "lender")
 	private User lender;
 
-	public Payment(){}
-	
-	public Payment(String subject, String description, Double amount,
-			LocalDate deadLine) {
+	@Size(min = 1, max = 50)
+	@Column(name = "location")
+	private String location;
+
+	public Payment() {
+	}
+
+	public Payment(String subject, String description, String location,
+			Double amount, LocalDate deadLine) {
 		this.subject = subject;
+		this.location = location;
 		this.description = description;
 		this.amount = amount;
 		this.deadLine = deadLine;
@@ -127,6 +142,14 @@ public class Payment implements Serializable {
 
 	public void setLender(User lender) {
 		this.lender = lender;
+	}
+	
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	@Override

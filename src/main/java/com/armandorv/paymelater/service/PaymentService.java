@@ -55,6 +55,7 @@ public class PaymentService {
 	}
 	
 	public List<Payment> getDebts(String borrwerLogin){
+		
 		User borrower = userRepository.findOne(borrwerLogin);
 		assertUserExists(borrower);
 		return paymentRepository.findByBorrower(borrower);

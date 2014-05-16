@@ -1,107 +1,142 @@
 body {
-    background: #ccc;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+	background: #fff;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #333;
 }
 
 .hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 60px;
+	margin: 50px auto 0 auto;
+	width: 300px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 30px;
+	background-color: #eee;
+	border-radius: 6px;
+	padding: 60px;
 }
 
 .hero-unit h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+	font-size: 60px;
+	line-height: 1;
+	letter-spacing: -1px;
 }
 
 .error {
-    color: white;
-    background-color: red;
+	color: white;
+	background-color: red;
 }
 
 .hipster {
-  display: inline-block;
-  width: 463px;
-  height: 640px;
-  background-image: url("../images/hipster.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
+	display: inline-block;
+	width: 463px;
+	height: 640px;
+	background-image: url("../images/hipster.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 .hand {
-    cursor: pointer;
+	cursor: pointer;
 }
 
-#threadDump .popover, #healthCheck .popover {
-    top: inherit;
-    display: block;
-    font-size: 10px;
-    max-width: 1024px;
+#threadDump .popover,#healthCheck .popover {
+	top: inherit;
+	display: block;
+	font-size: 10px;
+	max-width: 1024px;
 }
 
 #healthCheck .popover {
-    margin-left: -50px;
+	margin-left: -50px;
 }
 
 .alert .popover pre {
-    font-size: 10px;
+	font-size: 10px;
 }
 
-.voffset  { margin-top: 2px; }
-.voffset1 { margin-top: 5px; }
-.voffset2 { margin-top: 10px; }
-.voffset3 { margin-top: 15px; }
-.voffset4 { margin-top: 30px; }
-.voffset5 { margin-top: 40px; }
-.voffset6 { margin-top: 60px; }
-.voffset7 { margin-top: 80px; }
-.voffset8 { margin-top: 100px; }
-.voffset9 { margin-top: 150px; }
+.voffset {
+	margin-top: 2px;
+}
+
+.voffset1 {
+	margin-top: 5px;
+}
+
+.voffset2 {
+	margin-top: 10px;
+}
+
+.voffset3 {
+	margin-top: 15px;
+}
+
+.voffset4 {
+	margin-top: 30px;
+}
+
+.voffset5 {
+	margin-top: 40px;
+}
+
+.voffset6 {
+	margin-top: 60px;
+}
+
+.voffset7 {
+	margin-top: 80px;
+}
+
+.voffset8 {
+	margin-top: 100px;
+}
+
+.voffset9 {
+	margin-top: 150px;
+}
 
 /* start Password strength bar style */
 ul#strength {
-    display:inline;
-    list-style:none;
-    margin:0;
-    margin-left:15px;
-    padding:0;
-    vertical-align:2px;
+	display: inline;
+	list-style: none;
+	margin: 0;
+	margin-left: 15px;
+	padding: 0;
+	vertical-align: 2px;
 }
 
 .point:last {
-    margin:0 !important;
+	margin: 0 !important;
 }
+
 .point {
-    background:#DDD;
-    border-radius:2px;
-    display:inline-block;
-    height:5px;
-    margin-right:1px;
-    width:20px;
+	background: #DDD;
+	border-radius: 2px;
+	display: inline-block;
+	height: 5px;
+	margin-right: 1px;
+	width: 20px;
 }
 /* end Password strength bar style */
-
-
 .subhead {
- margin-top:-0.8%;
-	margin-left:-0.8%;
-	margin-right:-0.9%;
-	padding:3.2%; 
 	background: linear-gradient(-15deg, #428bca -30%, #C8F7EC 100%);
 }
 
 .content {
-	margin-top:-5%;
 	background: #fff;
+	margin: 2%;
 }
 
 .footer {
+	
+}
 
+.payPalButton {
+	background-image:  url("../images/pp_cc_mark_37x23.png");
+	padding: 12px 18px;
+}
+
+
+.cardsButton{
+	background-image:  url("../images/credit-cards-icon.png");
+	padding: 12px 18px;
 }

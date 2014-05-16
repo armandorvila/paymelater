@@ -14,6 +14,6 @@ public class ThymeleafConfiguration {
 
     @PostConstruct
     private void init() {
-        thymeleafViewResolver.setViewNames(new String[]{"error", "/tl/*"});
+        thymeleafViewResolver.setViewNames(new String[]{"error", "/tl/*", "ceca", "test"});
     }
 }

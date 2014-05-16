@@ -83,7 +83,6 @@ public class PaymentResourceTest {
 				+ DEFAULT_SAMPLE_TEXT_ATTR);
 		payment.setDeadLine(new LocalDate());
 		payment.setAmount(20.0);
-		payment.setLender("admin");
 		payment.setBorrower("user");
 	}
 

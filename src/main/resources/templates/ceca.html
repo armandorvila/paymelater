@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Paymelater.com</title>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width"/>
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="../../../../styles/bootstrap.css"/>
+<link rel="stylesheet" href="../../../../styles/main.css"/>
+<link rel="stylesheet" href="../../../../styles/famfamfam-flags.css"/>
+<!-- endbuild -->
+</head>
+<body>
+	<!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+	<div class="banner"></div>
+	
+	<div class="container">
+		<nav class="navbar navbar-fixed-top  navbar-inverse" role="navigation">
+	
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+	
+				<a class="navbar-brand" href="/#/home"> Paymelater.com</a>
+			</div>
+	
+			<div class="collapse navbar-collapse offset1"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="/#/debts"><span
+								class="glyphicon glyphicon-arrow-left"></span> &nbsp;<span>Debts</span></a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</nav>
+	</div>
+	
+	<header class="subhead  jumbotron widget-head">
+				<h1>Paymelater.com</h1>
+				<p>Pay all your Debts from Paymelater.com!</p>
+	</header>
+	
+	<div class="container">
+				<div class="lead">
+					<h2>Warnning !</h2>
+					
+				</div>	
+			 	<div class="">
+			 		<p>You are leaving our web, from here until the end of the payment you
+			 		will be at the lender TPV:</p>
+					<form id="formularioEnvio" method="post" action="#"  th:action="${form.url}">
+						<div>
+							<input type="hidden" name="MerchantID" th:value="${form.params.get('MerchantID')}"/>
+							<input type="hidden" name="AcquirerBIN" th:value="${form.params.get('AcquirerBIN')}"/>
+							<input type="hidden" name="TerminalID" th:value="${form.params.get('TerminalID')}"/>
+							<input type="hidden" name="Num_operacion" th:value="${form.params.get('Num_operacion')}"/>
+							<input type="hidden" name="Importe" th:value="${form.params.get('Importe')}"/>
+							<input type="hidden" name="TipoMoneda" th:value="${form.params.get('TipoMoneda')}"/>
+							<input type="hidden" name="Exponente" th:value="${form.params.get('Exponente')}"/>
+							<input type="hidden" name="Firma" th:value="${form.params.get('Firma')}"/>
+							<input type="hidden" name="Pago_soportado" th:value="${form.params.get('Pago_soportado')}" />
+							<input type="hidden" name="Idioma" th:value="${form.params.get('Idioma')}" />
+							<input type="hidden" name="Descripcion" value="" />
+							<input type="hidden" name="URL_OK" th:value="${form.params.get('URL_OK')}" />
+							<input type="hidden" name="URL_NOK" th:value="${form.params.get('URL_KO')}" />
+							<input type="hidden" name="Cifrado" value="SHA1" />	
+							<input type="submit" class="btn btn-primary" value="Continue" />
+						</div> 
+					</form>
+				</div>
+			
+			<footer class="modal-footer footer">
+				<a href="https://twitter.com/armandorvila" class="btn-link">Twitter</a> | <a href="https://www.linkedin.com/in/armandorv" class="btn-link">Linkedin</a>
+			</footer>
+	</div>
+
+	<!-- build:js scripts/scripts.js -->
+	<script src="../../../../bower_components/modernizr/modernizr.js"></script>
+	<script src="../../../../bower_components/jquery/jquery.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/affix.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/alert.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/button.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/popover.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+	<script
+		src="../../../../bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js"></script>
+</body>
+</html>

@@ -23,22 +23,19 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 	<div class="banner"></div>
-	<div class="container">
 
-		<div data-ng-include="'views/navbar.html'"></div>
-
-		<div class="well well-sm content">
-			<header class="modal-header subhead  jumbotron widget-head">
+	<div data-ng-include="'views/navbar.html'"></div>
+	
+	<header class="subhead  jumbotron widget-head">
 				<h1 data-translate="main.title">Paymelater.com</h1>
 				<p data-translate="main.subtitle">Welcome to Paymelater.com!</p>
-			</header>
-
+	</header>
+	
+	<div class="container">
 			<div data-ng-view=""></div>
-
 			<footer class="modal-footer footer">
 				<a href="https://twitter.com/armandorvila" class="btn-link">Twitter</a> | <a href="https://www.linkedin.com/in/armandorv" class="btn-link">Linkedin</a>
 			</footer>
-		</div>
 	</div>
 
 	<!-- build:js scripts/scripts.js -->
@@ -92,6 +89,10 @@
 	<script src="scripts/charges/router.js"></script>
 	<script src="scripts/charges/controller.js"></script>
 	<script src="scripts/charges/service.js"></script>
+	
+	<script src="scripts/debts/router.js"></script>
+	<script src="scripts/debts/controller.js"></script>
+	<script src="scripts/debts/service.js"></script>
 	<!-- endbuild -->
 </body>
 </html>

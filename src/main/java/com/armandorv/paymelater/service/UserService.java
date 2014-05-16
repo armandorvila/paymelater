@@ -58,7 +58,7 @@ public class UserService {
 		User user = new User();
 
 		user.setLogin(login);
-		user.setPassword(password);
+		user.setPassword(passwordEncoder.encode(password));
 
 		user.setFirstName(firstName);
 		user.setLastName(lastName);

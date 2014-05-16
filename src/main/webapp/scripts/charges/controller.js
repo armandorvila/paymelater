@@ -6,6 +6,7 @@ paymeLaterApp.controller('ChargesController', ['$http','$scope', 'resolvedPaymen
         $scope.payments = resolvedPayment;
 
         $scope.create = function () {
+        	$scope.payment.borrower = $scope.payment.borrower.login;
         	Charge.save(JSON.stringify($scope.payment),
                 function () {
                     $scope.payments = Charge.query();
@@ -27,7 +28,7 @@ paymeLaterApp.controller('ChargesController', ['$http','$scope', 'resolvedPaymen
         };
 
         $scope.clear = function () {
-            $scope.payment = { subject: "sdsdsdsds", description: "ssdsdsdsdsdsdsdsdsds", deadLine: "", amount: "2.0", lender: "admin" , borrower: "user"};
+            $scope.payment = { subject: "", description: "", deadLine: "", amount: "" , borrower: ""};
         };
         
         $scope.getLocations = function(val) {
@@ -40,4 +41,14 @@ paymeLaterApp.controller('ChargesController', ['$http','$scope', 'resolvedPaymen
                  return res.data.results;
              });
         };
+        
+        $scope.getBorrowers = function(val) {
+       	 return $http.get('/app/rest/users/find', {
+                params : {
+                    name : val
+                }
+            }).then(function(res) {
+                return res.data;
+            });
+       };
     }]);

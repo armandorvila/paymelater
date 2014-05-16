@@ -125,9 +125,11 @@ paymeLaterApp.factory('AuthenticationSharedService', ['$rootScope', '$http', '$c
                         Session.create(data.login, data.firstName, data.lastName, data.email, data.roles);
                         $cookieStore.put('account', JSON.stringify(Session));
                         authService.loginConfirmed(data);
+                        param.success();
                     });
                 }).error(function (data, status, headers, config) {
                     Session.destroy();
+                    param.error();
                 });
             },
             isAuthenticated: function () {

@@ -7,7 +7,7 @@
             <Pattern>[%p] %c - %m%n</Pattern>
         </encoder>
     </appender>
-    <logger name="com.armandorv.paymelater" level="INFO"/>
+    <logger name="com.armandorv.paymelater" level="${logback.loglevel}"/>
     <logger name="com.jayway" level="WARN"/>
     <logger name="ch.qos.logback" level="WARN"/>
     <logger name="com.codahale.metrics" level="WARN"/>
@@ -23,7 +23,7 @@
     <logger name="org.springframework.cache" level="WARN"/>
     <logger name="org.thymeleaf" level="WARN"/>   
 
-    <root level="INFO">
+    <root level="${logback.loglevel}">
         <appender-ref ref="CONSOLE"/>
     </root>
 

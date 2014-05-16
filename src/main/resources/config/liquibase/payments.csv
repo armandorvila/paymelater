@@ -1,1 +1,8 @@
-id;subject;description;amount;borrower_id;lender_id;beginning;dead_line
+id;subject;description;location;amount;borrower;lender;beginning;dead_line
+1;Pieza del coche;Presté dinero para arreglar coche;Madrid Spain;200;user;admin;2014-05-12;2014-12-12
+2;Pieza del coche;Presté dinero para arreglar coche;Madrid Spain;200;admin;user;2014-05-12;2014-12-12
+3;Pieza del coche;Presté dinero para arreglar coche;Madrid Spain;200;admin;user;2014-05-12;2014-12-12
+4;Pieza del coche;Presté dinero para arreglar coche;Madrid Spain;200;admin;user;2014-05-12;2014-12-12
+5;Pieza del coche;Presté dinero para arreglar coche;Madrid Spain;200;admin;user;2014-05-12;2014-12-12
+6;Pieza del coche;Presté dinero para arreglar coche;Madrid Spain;200;admin;user;2014-05-12;2014-12-12
+7;Pieza del coche;Presté dinero para arreglar coche;Madrid Spain;200;admin;user;2014-05-12;2014-12-12

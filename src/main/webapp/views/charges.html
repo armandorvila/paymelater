@@ -1,114 +1,51 @@
 <div>
+	<section class="row">
+		<div class="col-md-6">
+			<button class="btn btn-primary btn-lg" data-toggle="modal"
+				data-target="#savePaymentModal" data-ng-click="clear()">
+				<span class="glyphicon glyphicon-flash"></span>Charge
+			</button>
 
-	<h2>Payments</h2>
-
-	<button class="btn btn-primary btn-lg" data-toggle="modal"
-		data-target="#savePaymentModal" ng-click="clear()">
-		<span class="glyphicon glyphicon-flash"></span> Create a new Payment
-	</button>
-
-	<div class="modal fade" id="savePaymentModal" tabindex="-1"
-		role="dialog" aria-labelledby="myPaymentLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form name="form" role="form" novalidate
-					class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
-					data-ng-submit="create()">
-
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true" data-ng-click="clear()">&times;</button>
-						<h4 class="modal-title" id="myPaymentLabel">Create or edit a
-							Payment</h4>
-					</div>
-					<div class="modal-body">
-
-						<div class="form-group">
-							<label>Subject</label> <input type="text" class="form-control"
-								name="subject" data-ng-model="payment.subject" data-ng-minlength=1
-								data-ng-maxlength=50 required>
-						</div>
-						
-						<div class="form-group">
-							<label>Description</label> <textarea type="text" class="form-control"
-								name="description" data-ng-model="payment.description" data-ng-minlength=10
-								data-ng-maxlength=250 required></textarea>
-						</div>
-						
-						<div class="form-group">
-							<label>Amount</label> <input type="text" class="form-control"
-								name="amount" data-ng-model="payment.amount" data-ng-minlength=1
-								data-ng-maxlength=50 required>
-						</div>
-
-						<div class="form-group">
-							<label>Dead Line</label> <input type="date" class="form-control"
-								name="test" data-ng-model="payment.deadLine" required>
-						</div>
-						
-						<div class="form-group">
-							<label>Borrower</label> <input type="text" value="user" class="form-control"
-								name="borrower" data-ng-model="payment.borrower" data-ng-minlength=1
-								data-ng-maxlength=50 required>
-						</div>
-						
-						<div class="form-group">
-							<label>Lender</label> <input type="text" value="admin" class="form-control"
-								name="lender" data-ng-model="payment.lender" data-ng-minlength=1
-								data-ng-maxlength=50 required>
-						</div>
-
-						<div class="form-group">
-							<label>Location</label>
-							<input type="text" data-ng-model="inputLocation"
-									placeholder="Type your location"
-									data-typeahead="address.formatted_address for address in getLocations($viewValue) | filter:$viewValue"
-									class="input-xlarge">
-							
-						</div>
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal"
-							ng-click="clear()">
-							<span class="glyphicon glyphicon-ban-circle"></span> Cancel
-						</button>
-						<button type="submit" ng-disabled="form.$invalid"
-							class="btn btn-primary">
-							<span class="glyphicon glyphicon-save"></span> Save
-						</button>
-					</div>
-				</form>
-			</div>
+			<div data-ng-include="'views/charges-dialog.html'"></div>
 		</div>
-	</div>
+	</section>
 
-	<div class="table-responsive">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Sample text</th>
-					<th>Sample date</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="payment in payments">
-					<td>{{payment.id}}</td>
-					<td>{{payment.sampleTextAttribute}}</td>
-					<td>{{payment.sampleDateAttribute}}</td>
-					<td>
-						<button type="submit" ng-click="update(payment.id)" class="btn">
-							<span class="glyphicon glyphicon-pencil"></span> Edit
-						</button>
-						<button type="submit" ng-click="delete(payment.id)"
-							class="btn btn-danger">
-							<span class="glyphicon glyphicon-remove-circle"></span> Delete
-						</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+
+	<section class="well well-sm content">
+		<h2>My charges</h2>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Amount</th>
+						<th>Borrower</th>
+						<th>Subject</th>
+						<th>Place</th>
+						<th>Since</th>
+						<th>Until</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="payment in payments">
+						<td>{{payment.amount}}</td>
+						<td>{{payment.borrower.firstName}} {{payment.borrower.lastName}}</td>
+						<td>{{payment.subject}}</td>
+						<td>{{payment.location}}</td>
+						<td>{{payment.beginning}}</td>
+						<td>{{payment.deadLine}}</td>
+						
+						<td>
+<!-- 							<button type="submit" data-ng-click="update(payment.id)" class="btn">
+								<span class="glyphicon glyphicon-pencil"></span> Update
+							</button> -->
+							<button type="submit" data-ng-click="delete(payment.id)"
+								class="btn btn-primary">
+								<span class="glyphicon glyphicon-remove-circle"></span> Cancel
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
 </div>

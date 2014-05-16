@@ -1,6 +1,7 @@
 package com.armandorv.paymelater.web.rest;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.armandorv.paymelater.domain.User;
@@ -49,6 +51,17 @@ public class UserResource {
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 		}
 		return user;
+	}
+	
+	/**
+	 * GET /rest/users?name -> getAll users whose first or last name match name
+	 */
+	@RequestMapping(value = "/rest/users/find", method = RequestMethod.GET, produces = "application/json")
+	@Timed
+	@RolesAllowed(AuthoritiesConstants.USER)
+	public List<User> findUser(@RequestParam String name, HttpServletResponse response) {
+		log.debug("finding users for " + name);
+		return userRepository.find("%" + name + "%");
 	}
 
 	/**

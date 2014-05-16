@@ -30,7 +30,10 @@ paymeLaterApp.controller('LoginController', ['$scope', '$location', 'Authenticat
                 password: $scope.password,
                 rememberMe: $scope.rememberMe,
                 success: function () {
-                    $location.path('');
+                    $location.path('/');
+                },
+                error: function () {
+                	$scope.authenticationError = true;
                 }
             })
         }
