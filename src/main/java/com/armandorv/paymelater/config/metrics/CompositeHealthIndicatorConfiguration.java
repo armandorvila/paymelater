@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 @Configuration
-public class JHipsterHealthIndicatorConfiguration implements InitializingBean {
+public class CompositeHealthIndicatorConfiguration implements InitializingBean {
 
     @Inject
     private JavaMailSenderImpl javaMailSender;
@@ -25,8 +25,8 @@ public class JHipsterHealthIndicatorConfiguration implements InitializingBean {
     private DatabaseHealthCheckIndicator databaseHealthCheckIndicator = new DatabaseHealthCheckIndicator();
 
     @Bean
-    public HealthIndicator healthIndicator() {
-        return new HealthIndicator() {
+    public HealthIndicator<?> healthIndicator() {
+        return new HealthIndicator<Object>() {
             @Override
             public Object health() {
                 Map<String, HealthCheckIndicator.Result> healths = new LinkedHashMap<>();

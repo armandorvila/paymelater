@@ -1,26 +1,25 @@
 package com.armandorv.paymelater.service;
 
-import com.armandorv.paymelater.Application;
-import com.armandorv.paymelater.domain.PersistentToken;
-import com.armandorv.paymelater.domain.User;
-import com.armandorv.paymelater.exception.UserAlreadyExistsException;
-import com.armandorv.paymelater.exception.UserNotFoundException;
-import com.armandorv.paymelater.repository.PersistentTokenRepository;
-import com.armandorv.paymelater.repository.UserRepository;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import org.joda.time.LocalDate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import javax.inject.Inject;
-import javax.transaction.Transactional;
-
-import static org.assertj.core.api.Assertions.*;
+import com.armandorv.paymelater.Application;
+import com.armandorv.paymelater.domain.PersistentToken;
+import com.armandorv.paymelater.domain.User;
+import com.armandorv.paymelater.exception.UserAlreadyExistsException;
+import com.armandorv.paymelater.repository.PersistentTokenRepository;
+import com.armandorv.paymelater.repository.UserRepository;
 
 /**
  * Test class for the UserResource REST controller.
@@ -70,13 +69,6 @@ public class UserServiceTest {
 				"test");
 	}
 
-	@Test(expected = UserNotFoundException.class)
-	public void testDeleteUser() {
-		assertThat(userRepository.findAll()).hasSize(2);
-		userService.deleteUser("admin");
-		assertThat(userRepository.findAll()).hasSize(1);
-		userService.deleteUser("admin");
-	}
 
 	private void generateUserToken(User user, String tokenSeries,
 			LocalDate localDate) {

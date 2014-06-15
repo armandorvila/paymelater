@@ -47,7 +47,7 @@ public class PaymentResource {
 	private CecaClient cecaClient;
 
 	/**
-	 * POST /rest/payments -> Create a new payment.
+	 * POST /rest/charges -> Create a new charge.
 	 */
 	@RequestMapping(value = "/rest/charges", method = RequestMethod.POST, produces = "application/json")
 	@Timed
@@ -115,12 +115,11 @@ public class PaymentResource {
 	 */
 	@RequestMapping(value = { "/rest/debts/payPal/{id}" }, method = RequestMethod.GET, produces = "application/json")
 	@Timed
-	public void payDebtWithPayPal(@PathVariable Long id,
+	public String payDebtWithPayPal(@PathVariable Long id,
 			HttpServletResponse response) throws IOException {
 		log.debug("REST request to pay with pay pal Payment : {}", id);
 		Payment payment = paymentRepository.findOne(id);
-
-		response.sendRedirect(payPalClient.pay(payment.getAmount()));
+		return payPalClient.pay(payment.getAmount());
 	}
 
 	/**

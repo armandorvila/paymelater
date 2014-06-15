@@ -37,19 +37,19 @@ public class PaymentServiceTest {
 
 	@Test
 	public void testCreatePayment() {
-		assertThat(paymentRepository.findAll()).isEmpty();
+		assertThat(paymentRepository.findAll()).hasSize(7);
 		paymentService.createPayment("admin", "user", generatePayment());
-		assertThat(paymentRepository.findAll()).hasSize(1);
+		assertThat(paymentRepository.findAll()).hasSize(8);
 	}
 
 	@Test
 	public void getCharges() {
-		assertThat(paymentService.getCharges("admin")).hasSize(1);
+		assertThat(paymentService.getCharges("admin")).hasSize(2);
 	}
 
 	@Test
 	public void getDebts() {
-		assertThat(paymentService.getDebts("user")).hasSize(1);
+		assertThat(paymentService.getDebts("user")).hasSize(2);
 	}
 
 	private Payment generatePayment() {

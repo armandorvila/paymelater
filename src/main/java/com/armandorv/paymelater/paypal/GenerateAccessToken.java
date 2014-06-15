@@ -5,7 +5,7 @@ import com.paypal.core.rest.OAuthTokenCredential;
 import com.paypal.core.rest.PayPalRESTException;
 
 public class GenerateAccessToken {
-
+	@SuppressWarnings("deprecation")
 	public static String getAccessToken() throws PayPalRESTException {
 
 		// ###AccessToken
@@ -13,6 +13,7 @@ public class GenerateAccessToken {
 		// OAuthTokenCredential by passing in
 		// ClientID and ClientSecret
 		String clientID = ConfigManager.getInstance().getValue("clientID");
+		
 		String clientSecret = ConfigManager.getInstance().getValue(
 				"clientSecret");
 

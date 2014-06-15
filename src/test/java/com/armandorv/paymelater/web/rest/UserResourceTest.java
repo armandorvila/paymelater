@@ -77,7 +77,7 @@ public class UserResourceTest {
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$.lastName").value("Administrator"));
+                .andExpect(jsonPath("$.lastName").value("Ramírez"));
     }
 
     @Test

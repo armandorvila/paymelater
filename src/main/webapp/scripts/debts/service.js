@@ -8,11 +8,3 @@ paymeLaterApp.factory('Debt', ['$resource',
             'save': { method: 'POST'}
         });
     }]);
-
-
-paymeLaterApp.factory('PayPal', ['$resource',
-                               function ($resource) {
-                                   return $resource('app/rest/debts/payPal/:id', {}, {
-                                       'pay': { method: 'GET'}
-                                   });
-                               }]);
