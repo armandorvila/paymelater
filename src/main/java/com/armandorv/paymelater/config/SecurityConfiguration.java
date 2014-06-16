@@ -1,6 +1,7 @@
 package com.armandorv.paymelater.config;
 
-import com.armandorv.paymelater.security.*;
+import javax.inject.Inject;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -16,7 +17,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.security.web.authentication.RememberMeServices;
 
-import javax.inject.Inject;
+import com.armandorv.paymelater.security.AjaxAuthenticationFailureHandler;
+import com.armandorv.paymelater.security.AjaxAuthenticationSuccessHandler;
+import com.armandorv.paymelater.security.AjaxLogoutSuccessHandler;
+import com.armandorv.paymelater.security.AuthoritiesConstants;
+import com.armandorv.paymelater.security.Http401UnauthorizedEntryPoint;
 
 @Configuration
 @EnableWebSecurity
@@ -51,8 +56,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Inject
 	public void configureGlobal(AuthenticationManagerBuilder auth)
 			throws Exception {
-		auth.userDetailsService(userDetailsService);
-		// .passwordEncoder(passwordEncoder()); Remove the password encode until
+		auth.userDetailsService(userDetailsService).passwordEncoder(
+				passwordEncoder());
+		// Remove the password encode until
 		// node js version knows how do it.
 	}
 
