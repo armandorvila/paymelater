@@ -3,7 +3,7 @@
     <changeSet author="jhipster" id="1400148147228-3">
         <dropNotNullConstraint catalogName="" columnDataType="varchar(255)" columnName="borrower" schemaName="public" tableName="T_PAYMENT"/>
     </changeSet>
-    <changeSet author="jhipster" id="1400148147228-4">
+    <changeSet author="armandorv" id="1400148147228-4">
         <dropNotNullConstraint catalogName="" columnDataType="varchar(255)" columnName="lender" schemaName="public" tableName="T_PAYMENT"/>
     </changeSet>
 </databaseChangeLog>

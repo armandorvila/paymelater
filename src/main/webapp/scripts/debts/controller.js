@@ -1,7 +1,7 @@
 'use strict';
 
-paymeLaterApp.controller('DebtsController', ['$http','$location','$scope', '$modal', 'resolvedPayment', 'Debt', 'PayPal',
-    function ($http,$location,$scope,$modal, resolvedPayment, Debt, PayPal, Card ) {
+paymeLaterApp.controller('DebtsController', ['$http','$location','$scope', '$modal', 'resolvedPayment', 'Debt',
+    function ($http,$location,$scope,$modal, resolvedPayment, Debt, Card ) {
 
         $scope.payments = resolvedPayment;
 

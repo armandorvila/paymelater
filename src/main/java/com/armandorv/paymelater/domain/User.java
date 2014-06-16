@@ -19,7 +19,7 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@NotNull
-    @Size(min = 0, max = 50)
+    @Size(min = 0, max = 255)
     @Id
     private String login;
 
@@ -43,8 +43,8 @@ public class User implements Serializable {
     @ManyToMany
     @JoinTable(
             name = "T_USER_AUTHORITY",
-            joinColumns = {@JoinColumn(name = "login", referencedColumnName = "login")},
-            inverseJoinColumns = {@JoinColumn(name = "name", referencedColumnName = "name")})
+            joinColumns = {@JoinColumn(name = "t_userId", referencedColumnName = "login")},
+            inverseJoinColumns = {@JoinColumn(name = "t_authorityId", referencedColumnName = "name")})
     private Set<Authority> authorities;
 
     @JsonIgnore
